@@ -1,5 +1,9 @@
 2020-06-23 
-Tabla Naviera y Cliente (renombrar de Exportador)
+Formularios:
+	Plantilla Seco 
+	Tabla Naviera y Cliente (renombrar de Exportador)
+Acciones:
+	RestringirUnSoloRegistro para Reefer y Seco
 
 2020-06-19	
 Formularios:

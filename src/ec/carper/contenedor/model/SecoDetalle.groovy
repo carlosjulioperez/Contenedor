@@ -5,11 +5,11 @@ import org.openxava.annotations.*
 import org.openxava.model.*
 
 @Entity
-@View(members="codigo,item,cumple")
-class ReeferDetalle extends Identifiable{
+@View(members="codigo;item;cumple")
+class SecoDetalle extends Identifiable{
    
     @ManyToOne
-    Reefer reefer
+    Seco seco
    
     @Column(length=4) @ReadOnly @Required
     @LabelFormat(LabelFormatType.SMALL)
@@ -21,7 +21,7 @@ class ReeferDetalle extends Identifiable{
 
     @Editor(forViews="TipoConRadioButton", value="ValidValuesRadioButton") @Required
     @LabelFormat(LabelFormatType.SMALL)
-    private Cumple cumple
-    public enum Cumple { SI, NO };
+    Cumple cumple
+    enum Cumple { SI, NO, NA }
 }
 

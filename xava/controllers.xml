@@ -35,4 +35,11 @@
     	</action>
     </controller>   
     
+    <controller name="Seco">
+        <extends controller="Typical"/>
+        <action name="cargarItems" mode="detail" 
+        	class="ec.carper.contenedor.actions.SecoCargarItemsAction">
+    	</action>
+    </controller>   
+    
 </controllers>
