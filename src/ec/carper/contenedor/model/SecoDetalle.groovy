@@ -1,5 +1,8 @@
 package ec.carper.contenedor.model
 
+import ec.carper.contenedor.actions.*
+import ec.carper.contenedor.enums.*
+
 import javax.persistence.*
 import org.openxava.annotations.*
 import org.openxava.model.*
@@ -19,9 +22,9 @@ class SecoDetalle extends Identifiable{
     @LabelFormat(LabelFormatType.SMALL)
     Item item
 
+    @OnChange(SecoDetalleAction.class)
     @Editor(forViews="TipoConRadioButton", value="ValidValuesRadioButton") @Required
     @LabelFormat(LabelFormatType.SMALL)
-    Cumple cumple
-    enum Cumple { SI, NO, NA }
+    OpcionSiNoNa cumple
 }
 

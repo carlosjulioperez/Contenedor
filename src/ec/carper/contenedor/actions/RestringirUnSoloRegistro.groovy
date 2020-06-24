@@ -16,7 +16,6 @@ class RestringirUnSoloRegistro extends ViewBaseAction implements IChainAction{
 
         if ( numero >0 ){
             addMessage ("grabar_solo_un_registro")
-            
             resetDescriptionsCache()
             getView().clear()
         }else 

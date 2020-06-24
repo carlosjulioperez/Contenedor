@@ -1,18 +1,17 @@
+2020-06-24 
+	Restricción para aplicar cumplimiento en títulos en Saco
+
 2020-06-23 
-Formularios:
 	Plantilla Seco 
 	Tabla Naviera y Cliente (renombrar de Exportador)
-Acciones:
 	RestringirUnSoloRegistro para Reefer y Seco
 
 2020-06-19	
-Formularios:
 	Item 
 	ReeferP
 	ReeferPDetalle 
 
 2020-06-18
-Creación del proyecto:
 	Generación del entorno
 	Reefer.groovy
 	Contenedor
