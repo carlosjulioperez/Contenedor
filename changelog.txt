@@ -1,0 +1,17 @@
+2020-06-23 
+Tabla Naviera y Cliente (renombrar de Exportador)
+
+2020-06-19	
+Formularios:
+	Item 
+	ReeferP
+	ReeferPDetalle 
+
+2020-06-18
+Creación del proyecto:
+	Generación del entorno
+	Reefer.groovy
+	Contenedor
+	Exportador
+	Lugar
+	Naviera
