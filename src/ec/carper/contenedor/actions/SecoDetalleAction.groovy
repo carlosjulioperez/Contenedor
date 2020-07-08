@@ -1,16 +1,17 @@
 package ec.carper.contenedor.actions
 
+import ec.carper.contenedor.enums.*
+
 import org.openxava.actions.*
 
 class SecoDetalleAction extends OnChangePropertyBaseAction{
 
     void execute() throws Exception{
-        def codigo = (String)getView().getValue("codigo")
-        if (codigo.length()==1){
-            addMessage ("accion_restringida")
-            resetDescriptionsCache()
-            getView().clear()
-        }
-    }
-}
 
+        def codigo = (String)getView().getValue("codigo")
+        def cumple = (OpcionSiNoNa)getView().getValue("cumple")
+        if (codigo?.length()==1)
+            getView().setValue("cumple", null)
+    }
+        
+}

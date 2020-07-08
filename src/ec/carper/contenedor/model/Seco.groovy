@@ -45,15 +45,15 @@ class Seco extends Identifiable{
     boolean estandar40
     boolean highCube40
 
-    @OneToMany (mappedBy="seco", cascade=CascadeType.ALL) @EditOnly
-    @ListProperties("""codigo,item.descripcion,cumple""")
+    @ElementCollection
+    @ListProperties("codigo,item.descripcion,cumple") @EditOnly
     Collection<SecoDetalle>detalle
 
     void cargarItems() throws ValidationException{
         try{
             this.itemsCargados = true
-            getManager().persist(this)
             cargarDetalles(this)
+            getManager().persist(this)
         }catch(Exception ex){
             throw new SystemException("items_no_cargados", ex)
         }
@@ -63,13 +63,12 @@ class Seco extends Identifiable{
         try{
             def lista = getManager().createQuery("FROM SecoPDetalle WHERE secoP.id = 1 ORDER BY codigo").getResultList()
 
+            this.detalle = new ArrayList()
             lista.each{
-                def detalle    = new SecoDetalle()
-                detalle.id     = null
-                detalle.seco   = seco
-                detalle.codigo = it.codigo
-                detalle.item   = it.item
-                getManager().persist(detalle)
+                def d = new SecoDetalle()
+                d.codigo = it.codigo
+                d.item   = it.item
+                this.detalle.add(d)
             }
         }catch(Exception ex){
             throw new SystemException("items_no_cargados", ex)

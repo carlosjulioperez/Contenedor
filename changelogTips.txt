@@ -1,0 +1,6 @@
+Proyecto
+	* Importar datos:
+		COPY item    FROM '/tmp/item.csv'    DELIMITER ',' CSV HEADER;
+		COPY naviera FROM '/tmp/naviera.csv' DELIMITER ',' CSV HEADER;
+
+		\i /tmp/insert.sql

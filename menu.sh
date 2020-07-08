@@ -18,6 +18,9 @@ case $opt in
             ;;
 		"createWar")
             ant createWar
+            # Quitar los *.jars del war para copiar en menos tiempo
+            # zip -d file.jar unwanted_file.txt
+            zip -d ../../workspace.dist/Contenedor.dist/Contenedor.war WEB-INF/lib/\*
 			;;
 		"codigo-test")
 			ant test -Dnombre_clase=CodigoTest
@@ -26,7 +29,7 @@ case $opt in
 			ant test -Dnombre_clase=SuiteTest
 			;;
 		"unit-test")
-			ant test -Dnombre_clase=Cto24HTest
+			ant test -Dnombre_clase=Test
 			;;
 		"borar-db-HSQL")
 			ant deleteDatabaseFolder

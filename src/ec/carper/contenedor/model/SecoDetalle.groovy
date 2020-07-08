@@ -7,24 +7,16 @@ import javax.persistence.*
 import org.openxava.annotations.*
 import org.openxava.model.*
 
-@Entity
-@View(members="codigo;item;cumple")
-class SecoDetalle extends Identifiable{
+@Embeddable
+class SecoDetalle{
    
-    @ManyToOne
-    Seco seco
-   
-    @Column(length=4) @ReadOnly @Required
-    @LabelFormat(LabelFormatType.SMALL)
+    @Column(length=4) @ReadOnly
     String codigo
    
-    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @ReadOnly @Required
-    @LabelFormat(LabelFormatType.SMALL)
+    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @ReadOnly
     Item item
 
-    @OnChange(SecoDetalleAction.class)
-    @Editor(forViews="TipoConRadioButton", value="ValidValuesRadioButton") @Required
-    @LabelFormat(LabelFormatType.SMALL)
+    @Editor(value="ValidValuesRadioButton") @OnChange(SecoDetalleAction.class)
     OpcionSiNoNa cumple
 }
 

@@ -18,5 +18,6 @@ class SecoPDetalle extends Identifiable{
     @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @NoCreate @NoModify @Required
     @LabelFormat(LabelFormatType.SMALL)
     Item item
+
 }
 
