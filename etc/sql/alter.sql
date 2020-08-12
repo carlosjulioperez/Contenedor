@@ -8,4 +8,7 @@
 -- TRUNCATE SCHEMA INGENIO AND COMMIT;
 
 -- PostgreSQL
-DROP SCHEMA contenedor CASCADE;
+--DROP SCHEMA contenedor CASCADE;
+
+DROP TABLE contenedor.seco_detalle;
+DROP TABLE contenedor.seco;

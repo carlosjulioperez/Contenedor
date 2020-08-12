@@ -3,7 +3,7 @@
 # http://askubuntu.com/questions/1705/how-can-i-create-a-select-menu-in-a-shell-script
 
 PS3='Input your option: '
-options=("deleteClasses" "compile" "unit-test" "codigo-test" "suite-test" "updateSchema" "borar-db-HSQL" "datos-prueba-SQL" "sql-query" "sql-insert" "sql-alter" "sql-update"  "createWar" "zip" "version" "Quit")
+options=("deleteClasses" "compile" "codigo-test" "query-test" "unit-test" "suite-test" "updateSchema" "borar-db-HSQL" "datos-prueba-SQL" "sql-query" "sql-insert" "sql-update" "sql-alter" "createWar" "zip" "version" "Quit")
 
 select opt in "${options[@]}"
 do
@@ -25,11 +25,14 @@ case $opt in
 		"codigo-test")
 			ant test -Dnombre_clase=CodigoTest
 			;;
-		"suite-test")
-			ant test -Dnombre_clase=SuiteTest
+		"query-test")
+			ant test -Dnombre_clase=QueryTest
 			;;
 		"unit-test")
-			ant test -Dnombre_clase=Test
+			ant test -Dnombre_clase=BlcTest
+			;;
+		"suite-test")
+			ant test -Dnombre_clase=SuiteTest
 			;;
 		"borar-db-HSQL")
 			ant deleteDatabaseFolder
@@ -42,6 +45,7 @@ case $opt in
             ant sql-insert
 			;;
 		"deleteClasses")
+            rm -rf ~/.openxava
 			ant deleteClasses
 			;;
 		"zip")

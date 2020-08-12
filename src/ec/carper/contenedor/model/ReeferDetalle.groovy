@@ -1,27 +1,22 @@
 package ec.carper.contenedor.model
 
+import ec.carper.contenedor.actions.*
+import ec.carper.contenedor.enums.*
+
 import javax.persistence.*
 import org.openxava.annotations.*
 import org.openxava.model.*
 
-@Entity
-@View(members="codigo,item,cumple")
-class ReeferDetalle extends Identifiable{
+@Embeddable
+class ReeferDetalle{
    
-    @ManyToOne
-    Reefer reefer
-   
-    @Column(length=4) @ReadOnly @Required
-    @LabelFormat(LabelFormatType.SMALL)
+    @Column(length=4) @ReadOnly
     String codigo
    
-    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @ReadOnly @Required
-    @LabelFormat(LabelFormatType.SMALL)
+    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @ReadOnly
     Item item
 
-    @Editor(forViews="TipoConRadioButton", value="ValidValuesRadioButton") @Required
-    @LabelFormat(LabelFormatType.SMALL)
-    private Cumple cumple
-    public enum Cumple { SI, NO };
+    @Editor(value="ValidValuesRadioButton") @OnChange(ReeferDetalleAction.class)
+    OpcionSiNo cumple
 }
 

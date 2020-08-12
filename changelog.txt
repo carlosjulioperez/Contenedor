@@ -1,4 +1,9 @@
+2020-07-16 
+	Cambiar Collection a ElementList en formularios +contenedores
+	Ampliar tamano descripción en plantillas
+
 2020-07-07 
+	Plantilla de formulario Reefer
 	Grabar nulo en los títulos de SecoDetalle
 2020-07-04 
 	Reemplazo de OneToMany por ElementCollection Cont. Seco

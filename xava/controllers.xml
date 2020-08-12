@@ -42,4 +42,11 @@
     	</action>
     </controller>   
     
+    <controller name="Reefer">
+        <extends controller="Typical"/>
+        <action name="cargarItems" mode="detail" 
+        	class="ec.carper.contenedor.actions.ReeferCargarItemsAction">
+    	</action>
+    </controller>   
+    
 </controllers>

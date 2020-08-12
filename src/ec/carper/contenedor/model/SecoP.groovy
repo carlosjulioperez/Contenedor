@@ -10,7 +10,7 @@ class SecoP{
     @Id
     int codigo
     
-    @Column(length=30) @Required
+    @Column(length=100) @Required
     String descripcion 
 
     @OneToMany (mappedBy="secoP", cascade=CascadeType.ALL)

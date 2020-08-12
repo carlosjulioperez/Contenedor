@@ -16,7 +16,27 @@ import static org.openxava.jpa.XPersistence.*
     fecha, lugar, contenedor;
     cliente, referencia, naviera;
     contenedoresSecos [estandar20, estandar40, highCube40];
-    detalle
+    observaciones;
+    titObservaciones { detalle }
+    titBitacoraFirmas {
+        inspector {
+            inspectorHoraArribo, inspectorFechaArribo;
+            inspectorHoraInicio, inspectorFechaInicio;
+            inspectorHoraTermino, inspectorFechaTermino
+        }
+        chofer { 
+            chofer; 
+            placaCamion 
+        }
+        sellos { 
+            selloArribo; selloSPS; selloCliente; selloNaviera; aptoEmbarque
+        }
+        responsables {
+            inspectorSPSNombre, inspectorSPSCC;
+            repCliNombre, repCliCC;
+            repArea, repAreaCC
+        }
+    } 
 """)
 class Seco extends Identifiable{
     
@@ -32,22 +52,75 @@ class Seco extends Identifiable{
     @Column(length=150) @DisplaySize(20)
     String contenedor
     
-    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @NoCreate @NoModify
+    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList
     Cliente cliente 
     
     @Column(length=150) @DisplaySize(20)
     String referencia
 
-    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @NoCreate @NoModify
+    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList
     Naviera naviera
     
     boolean estandar20
     boolean estandar40
     boolean highCube40
 
+    @Column(length=200)
+    String observaciones
+
     @ElementCollection
     @ListProperties("codigo,item.descripcion,cumple") @EditOnly
-    Collection<SecoDetalle>detalle
+    Collection<SecoDetalle> detalle
+
+    @Stereotype("TIME") @Column(length=5)
+    String inspectorHoraArribo
+    @DefaultValueCalculator(CurrentLocalDateCalculator.class) @LabelFormat(LabelFormatType.NO_LABEL) 
+    LocalDate inspectorFechaArribo
+
+    @Stereotype("TIME") @Column(length=5)
+    String inspectorHoraInicio
+    @DefaultValueCalculator(CurrentLocalDateCalculator.class) @LabelFormat(LabelFormatType.NO_LABEL) 
+    LocalDate inspectorFechaInicio
+
+    @Stereotype("TIME") @Column(length=5)
+    String inspectorHoraTermino
+    @DefaultValueCalculator(CurrentLocalDateCalculator.class) @LabelFormat(LabelFormatType.NO_LABEL) 
+    LocalDate inspectorFechaTermino
+
+    @Column(length=50)
+    String chofer
+
+    @Column(length=20)
+    String placaCamion 
+
+    @Column(length=50)
+    String selloArribo 
+
+    @Column(length=50)
+    String selloSPS
+
+    @Column(length=50)
+    String selloCliente
+
+    @Column(length=50)
+    String selloNaviera 
+
+    boolean aptoEmbarque
+
+    @Column(length=50)// @DisplaySize(30)
+    String inspectorSPSNombre
+    @Column(length=13)
+    String inspectorSPSCC
+
+    @Column(length=50)
+    String repCliNombre
+    @Column(length=13)
+    String repCliCC
+
+    @Column(length=50)
+    String repArea
+    @Column(length=13)
+    String repAreaCC
 
     void cargarItems() throws ValidationException{
         try{
