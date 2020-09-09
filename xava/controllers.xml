@@ -21,32 +21,5 @@
     	</action>
 	</controller>    
     -->
-    <controller name="ReeferP">
-    	<extends controller="Typical"/>
-    	<action name="new" icon="library-plus" keystroke="Control N"
-        	class="ec.carper.contenedor.actions.RestringirUnSoloRegistro">
-    	</action>
-    </controller>   
-    
-    <controller name="SecoP">
-    	<extends controller="Typical"/>
-    	<action name="new" icon="library-plus" keystroke="Control N"
-        	class="ec.carper.contenedor.actions.RestringirUnSoloRegistro">
-    	</action>
-    </controller>   
-    
-    <controller name="Seco">
-        <extends controller="Typical"/>
-        <action name="cargarItems" mode="detail" 
-        	class="ec.carper.contenedor.actions.SecoCargarItemsAction">
-    	</action>
-    </controller>   
-    
-    <controller name="Reefer">
-        <extends controller="Typical"/>
-        <action name="cargarItems" mode="detail" 
-        	class="ec.carper.contenedor.actions.ReeferCargarItemsAction">
-    	</action>
-    </controller>   
     
 </controllers>
