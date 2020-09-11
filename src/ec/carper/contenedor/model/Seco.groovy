@@ -43,7 +43,6 @@ class Seco extends Identifiable{
     boolean itemsCargados
 
     @DefaultValueCalculator(CurrentLocalDateCalculator.class) // Fecha actual
-    @Required
     LocalDate fecha
     
     @Column(length=150) @DisplaySize(20)

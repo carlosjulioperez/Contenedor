@@ -7,8 +7,10 @@
         https://sourceforge.net/p/openxava/discussion/419690/thread/40db1436/?limit=25#563a    
         https://stackoverflow.com/questions/37340556/how-to-change-the-date-format-of-openxava-date-component
     -->
-    <editor name="MyDate" url="dateCalendarEditor.jsp">
-        <formatter class="ec.carper.contenedor.formatters.MyDateFormatter" />
-        <for-type type="java.util.Date" />
-    </editor>    
+
+    <!-- <editor name="MyDate" url="dateCalendarEditor.jsp"> -->
+    <!--     <formatter class="ec.carper.contenedor.formatters.MyDateFormatter" /> -->
+    <!--     <for&#45;type type="java.util.Date" /> -->
+    <!-- </editor>     -->
+
 </editors>

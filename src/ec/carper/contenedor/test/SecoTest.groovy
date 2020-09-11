@@ -12,19 +12,20 @@ class SecoTest extends ModuleTestBase {
         login("admin", "admin")
         
         execute("CRUD.new")
-        
         setValue("lugar" , "JUNIT")
-        setValue("fecha" , Aux.instance.fechaActual )
+        // setValue("fecha" , Aux.instance.fechaActual )
+        // setValue("fecha" , "10/09/2020" )
         execute ("CRUD.save")
-        printHtml()
         assertNoErrors()
-    
-        setConditionValues("JUNIT")
-        setConditionComparators("contains_comparator")
+
+        // setConditionComparators ( new String[] { "=", "contains_comparator" } )
+        // setConditionValues      ( new String[] { "", "JUNIT" } )
+        setConditionValues      ( [ "", "JUNIT" ] )
+        setConditionComparators ( [ "=", "contains_comparator" ] )
         printHtml()
-        execute("List.filter")
-        execute("List.viewDetail", "row=0")
-        execute    ("Seco.cargarItems")
+        execute ("List.filter")
+        execute ("List.viewDetail", "row=0")
+        execute ("Seco.cargarItems")
 
         //assertCollectionRowCount("detalle1", 62)
         // execute("Collection.edit" , "row=0,viewObject=xava_view_section0_detalle1")

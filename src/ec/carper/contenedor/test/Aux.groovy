@@ -5,7 +5,7 @@ import java.time.format.*
 
 @Singleton
 class Aux{
-    def getFechaActual() {
+    String getFechaActual() {
         return LocalDate.now().format( DateTimeFormatter.ofPattern("dd/MM/yyyy"))
     }
 }
