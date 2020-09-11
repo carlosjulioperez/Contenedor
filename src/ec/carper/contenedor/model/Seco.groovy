@@ -11,7 +11,7 @@ import org.openxava.validators.*
 import static org.openxava.jpa.XPersistence.*
 
 @Entity
-@Tab(properties="""fecha,cliente.descripcion,naviera.descripcion""")
+@Tab(properties="""fecha,lugar,cliente.descripcion,naviera.descripcion""")
 @View(members="""#
     fecha, lugar, contenedor;
     cliente, referencia, naviera;

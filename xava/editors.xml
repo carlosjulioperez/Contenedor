@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<!DOCTYPE editors SYSTEM "dtds/editors.dtd">
+<editors>
+
+    <!-- 
+        https://sourceforge.net/p/openxava/discussion/419690/thread/1f814c16/?limit=25#bf74        
+        https://sourceforge.net/p/openxava/discussion/419690/thread/40db1436/?limit=25#563a    
+        https://stackoverflow.com/questions/37340556/how-to-change-the-date-format-of-openxava-date-component
+    -->
+    <editor name="MyDate" url="dateCalendarEditor.jsp">
+        <formatter class="ec.carper.contenedor.formatters.MyDateFormatter" />
+        <for-type type="java.util.Date" />
+    </editor>    
+</editors>
