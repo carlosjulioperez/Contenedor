@@ -15,7 +15,7 @@ class SecoTest extends ModuleTestBase {
         setValue("lugar" , "JUNIT")
         // setValue("fecha" , Aux.instance.fechaActual )
         // setValue("fecha" , "10/09/2020" )
-        execute ("CRUD.save")
+        execute ("Contenedor.save")
         assertNoErrors()
 
         // setConditionComparators ( new String[] { "=", "contains_comparator" } )
@@ -26,6 +26,9 @@ class SecoTest extends ModuleTestBase {
         execute ("List.filter")
         execute ("List.viewDetail", "row=0")
         execute ("Seco.cargarItems")
+        assertNoErrors()
+        
+        setValue("contenedor" , "CONTENEDOR")
 
         //assertCollectionRowCount("detalle1", 62)
         // execute("Collection.edit" , "row=0,viewObject=xava_view_section0_detalle1")
