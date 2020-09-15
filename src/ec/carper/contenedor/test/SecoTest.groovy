@@ -22,13 +22,42 @@ class SecoTest extends ModuleTestBase {
         // setConditionValues      ( new String[] { "", "JUNIT" } )
         setConditionValues      ( [ "", "JUNIT" ] )
         setConditionComparators ( [ "=", "contains_comparator" ] )
-        printHtml()
         execute ("List.filter")
         execute ("List.viewDetail", "row=0")
         execute ("Seco.cargarItems")
+        //printHtml()
         assertNoErrors()
         
         setValue("contenedor" , "CONTENEDOR")
+        setValue("cliente.id", "1")
+        setValue("referencia", "REFERENCIA")
+        setValue("naviera.id", "01")
+        setValue("observaciones", "OBSERVACIONES")
+
+        execute ('Sections.change', 'activeSection=1')
+        setValue("inspectorHoraArribo", "08:00")
+        setValue("inspectorHoraInicio", "09:00")
+        setValue("inspectorHoraTermino", "10:00")
+        
+        execute ('Sections.change', 'activeSection=1,viewObject=xava_view_section1')
+        setValue("chofer", "JUAN ARIAS")
+        setValue("placaCamion", "ABC123")
+        
+        execute ('Sections.change', 'activeSection=2,viewObject=xava_view_section1')
+        setValue("selloArribo", "ARRIBO 123")
+        setValue("selloSPS", "SPS 123")
+        setValue("selloCliente", "CLIENTE 123")
+        setValue("selloNaviera", "NAVIERA 123")
+        
+        execute ('Sections.change', 'activeSection=3,viewObject=xava_view_section1')
+        setValue("inspectorSPSNombre", "ANDRES ABAD")
+        setValue("inspectorSPSCC", "1234567890123")
+        setValue("repCliNombre", "JORGE MORAN")
+        setValue("repCliCC", "1234567890123")
+        setValue("repArea", "LUIS LOPEZ")
+        setValue("repAreaCC", "1234567890123")
+        
+        execute ("Contenedor.save")
 
         //assertCollectionRowCount("detalle1", 62)
         // execute("Collection.edit" , "row=0,viewObject=xava_view_section0_detalle1")
