@@ -13,6 +13,6 @@ class ReeferP{
     @Column(length=100) @Required
     String descripcion 
 
-    @OneToMany (mappedBy="reeferP", cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="reeferP", cascade=CascadeType.ALL) @XOrderBy("codigo")
     Collection<ReeferPDetalle>detalle
 }

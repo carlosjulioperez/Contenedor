@@ -1,14 +1,8 @@
--- DROP TABLE INGENIO.TAMANOGRANODETALLE;
--- DROP TABLE INGENIO.TAMANOGRANO;
-
--- DROP TABLE INGENIO.CTO24HDETALLE;
--- DROP TABLE INGENIO.CTO24H;
-
--- HSQLDB
--- TRUNCATE SCHEMA INGENIO AND COMMIT;
-
--- PostgreSQL
---DROP SCHEMA contenedor CASCADE;
-
+DROP TABLE contenedor.inspeccion_detalle;
+DROP TABLE contenedor.inspeccion;
+DROP TABLE contenedor.reefer_detalle;
+DROP TABLE contenedor.reeferdetalle;
+DROP TABLE contenedor.reefer;
 DROP TABLE contenedor.seco_detalle;
 DROP TABLE contenedor.seco;
+

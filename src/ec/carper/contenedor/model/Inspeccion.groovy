@@ -11,11 +11,11 @@ import org.openxava.validators.*
 import static org.openxava.jpa.XPersistence.*
 
 @Entity
-@Tab(properties="""fecha,lugar,cliente.descripcion,naviera.descripcion""")
+@Tab(properties="""fecha, contenedorTipo, contenedor,cliente.descripcion,naviera.descripcion""")
 @View(members="""#
-    fecha, lugar, contenedor;
-    cliente, referencia, naviera;
-    contenedoresSecos [estandar20, estandar40, highCube40];
+    fecha, contenedorTipo, contenedor, contenedorTamano;
+    lugar, cliente, referencia, naviera;
+    photos;
     observaciones;
     titObservaciones { detalle }
     titBitacoraFirmas {
@@ -38,12 +38,26 @@ import static org.openxava.jpa.XPersistence.*
         }
     } 
 """)
-class Seco extends Identifiable{
+class Inspeccion extends Identifiable{
     
     boolean itemsCargados
 
+    enum ContenedorTipo { 
+        SECO, REFRIGERADO 
+    }
+
+    enum ContenedorTamano { 
+        ESTANDAR20, ESTANDAR40, HIGHCUBE40
+    }
+
     @DefaultValueCalculator(CurrentLocalDateCalculator.class) // Fecha actual
     LocalDate fecha
+
+    @Required
+    ContenedorTipo contenedorTipo
+    
+    @Required
+    ContenedorTamano contenedorTamano
     
     @Column(length=150) @DisplaySize(20)
     String lugar
@@ -60,16 +74,12 @@ class Seco extends Identifiable{
     @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList
     Naviera naviera
     
-    boolean estandar20
-    boolean estandar40
-    boolean highCube40
-
     @Column(length=200)
     String observaciones
 
     @ElementCollection
     @ListProperties("codigo,item.descripcion,cumple") @EditOnly
-    Collection<SecoDetalle> detalle
+    Collection<InspeccionDetalle> detalle
 
     @Stereotype("TIME") @Column(length=5)
     String inspectorHoraArribo
@@ -121,6 +131,9 @@ class Seco extends Identifiable{
     @Column(length=13)
     String repAreaCC
 
+    @Stereotype("IMAGES_GALLERY")
+    String photos
+
     void cargarItems() throws ValidationException{
         try{
             this.itemsCargados = true
@@ -131,13 +144,19 @@ class Seco extends Identifiable{
         }
     }
 
-    void cargarDetalles(Seco seco){
+    void cargarDetalles(Inspeccion seco){
         try{
-            def lista = getManager().createQuery("FROM SecoPDetalle WHERE secoP.id = 1 ORDER BY codigo").getResultList()
+            println ">>> ${contenedorTipo}"
+
+            def consulta = contenedorTipo == ContenedorTipo.SECO ? 
+                "FROM SecoPDetalle WHERE secoP.id = 1 ORDER BY codigo":
+                "FROM ReeferPDetalle WHERE reeferP.id = 1 ORDER BY codigo"
+
+            def lista = getManager().createQuery(consulta).getResultList()
 
             this.detalle = new ArrayList()
             lista.each{
-                def d = new SecoDetalle()
+                def d = new InspeccionDetalle()
                 d.codigo = it.codigo
                 d.item   = it.item
                 this.detalle.add(d)

@@ -2,17 +2,18 @@ package ec.carper.contenedor.test
 
 import org.openxava.tests.*
 
-class SecoTest extends ModuleTestBase {
+class InspeccionTest extends ModuleTestBase {
 
-    SecoTest(String testName) {
-        super(testName, "Contenedor", "Seco")
+    InspeccionTest(String testName) {
+        super(testName, "Contenedor", "Inspeccion")
     }
 
     void testCrear() throws Exception {
         login("admin", "admin")
         
         execute("CRUD.new")
-        setValue("lugar" , "JUNIT")
+        setValue("contenedor" , "JUNIT")
+        setValue("contenedorTipo" , "1") //Seco / Refrigerado
         // setValue("fecha" , Aux.instance.fechaActual )
         // setValue("fecha" , "10/09/2020" )
         execute ("Contenedor.save")
@@ -20,15 +21,15 @@ class SecoTest extends ModuleTestBase {
 
         // setConditionComparators ( new String[] { "=", "contains_comparator" } )
         // setConditionValues      ( new String[] { "", "JUNIT" } )
-        setConditionValues      ( [ "", "JUNIT" ] )
-        setConditionComparators ( [ "=", "contains_comparator" ] )
+        setConditionValues      ( [ "", "", "JUNIT" ] )
+        setConditionComparators ( [ "", "=", "contains_comparator" ] )
         execute ("List.filter")
         execute ("List.viewDetail", "row=0")
-        execute ("Seco.cargarItems")
+        execute ("Inspeccion.cargarItems")
         //printHtml()
         assertNoErrors()
         
-        setValue("contenedor" , "CONTENEDOR")
+        setValue("lugar" , "LUGAR")
         setValue("cliente.id", "1")
         setValue("referencia", "REFERENCIA")
         setValue("naviera.id", "01")

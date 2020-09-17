@@ -13,6 +13,6 @@ class SecoP{
     @Column(length=100) @Required
     String descripcion 
 
-    @OneToMany (mappedBy="secoP", cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="secoP", cascade=CascadeType.ALL) @XOrderBy("codigo")
     Collection<SecoPDetalle>detalle
 }

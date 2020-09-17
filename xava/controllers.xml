@@ -44,10 +44,10 @@
     	</action>
     </controller>   
     
-    <controller name="Seco">
+    <controller name="Inspeccion">
         <extends controller="Contenedor"/>
         <action name="cargarItems" mode="detail" 
-        	class="ec.carper.contenedor.actions.SecoCargarItemsAction">
+        	class="ec.carper.contenedor.actions.InspeccionCargarItemsAction">
     	</action>
     </controller>   
     

@@ -1,5 +1,9 @@
+2020-09-15 
+	Ordenar por código en Plantilla Contenedor Seco
+	Ordenar por código en Plantilla Contenedor Refrigerado
+
 2020-07-16 
-	Cambiar Collection a ElementList en formularios +contenedores
+	Cambiar Collection a ElementList en formularios
 	Ampliar tamano descripción en plantillas
 
 2020-07-07 

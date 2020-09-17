@@ -4,7 +4,7 @@ import ec.carper.contenedor.enums.*
 
 import org.openxava.actions.*
 
-class SecoDetalleAction extends OnChangePropertyBaseAction{
+class InspeccionDetalleAction extends OnChangePropertyBaseAction{
 
     void execute() throws Exception{
 

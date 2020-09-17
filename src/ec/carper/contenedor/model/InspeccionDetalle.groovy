@@ -8,7 +8,7 @@ import org.openxava.annotations.*
 import org.openxava.model.*
 
 @Embeddable
-class ReeferDetalle{
+class InspeccionDetalle{
    
     @Column(length=4) @ReadOnly
     String codigo
@@ -16,7 +16,7 @@ class ReeferDetalle{
     @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList @ReadOnly
     Item item
 
-    @Editor(value="ValidValuesRadioButton") @OnChange(ReeferDetalleAction.class)
-    OpcionSiNo cumple
+    @Editor(value="ValidValuesRadioButton") @OnChange(InspeccionDetalleAction.class)
+    OpcionSiNoNa cumple
 }
 

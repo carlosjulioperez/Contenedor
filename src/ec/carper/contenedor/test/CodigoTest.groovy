@@ -22,26 +22,26 @@ class CodigoTest extends GroovyTestCase {
     */
 
     // https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection
-    void testSecoAgregarItemsElementCollection(){
-        def seco = new Seco()
+    void testInspeccionAgregarItemsElementCollection(){
+        def inspeccion = new Inspeccion()
         
-        seco.detalle = new ArrayList()
+        inspeccion.detalle = new ArrayList()
         
         // Detalles normales
-        def d1 = new SecoDetalle()
+        def d1 = new InspeccionDetalle()
         d1.codigo = "01"
-        seco.detalle.add(d1)
+        inspeccion.detalle.add(d1)
 
-        def d2 = new SecoDetalle()
+        def d2 = new InspeccionDetalle()
         d2.codigo = "02"
-        seco.detalle.add(d2)
+        inspeccion.detalle.add(d2)
 
-        seco.detalle.each{
+        inspeccion.detalle.each{
             println it.codigo
         }
-        println (seco)
+        println (inspeccion)
 
-        //seco.detalle.add(new SecoDetalle())
+        //inspeccion.detalle.add(new InspeccionDetalle())
 
     }
 

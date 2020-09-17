@@ -6,7 +6,7 @@ import org.openxava.actions.*
 import org.openxava.jpa.*
 import org.openxava.model.*
 
-class ReeferCargarItemsAction extends ViewBaseAction implements IHideActionAction{
+class InspeccionCargarItemsAction extends ViewBaseAction implements IHideActionAction{
 
     private boolean hideAction = false
 
@@ -17,22 +17,22 @@ class ReeferCargarItemsAction extends ViewBaseAction implements IHideActionActio
             addError("items_no_cargados")
             return
         }
-        MapFacade.setValues("Reefer",
+        MapFacade.setValues("Inspeccion",
             getView().getKeyValues(), getView().getValues()
         )
 
-        Reefer reefer = XPersistence.getManager().find( Reefer.class, getView().getValue("id") )
-        if (reefer.itemsCargados){
+        Inspeccion inspeccion = XPersistence.getManager().find( Inspeccion.class, getView().getValue("id") )
+        if (inspeccion.itemsCargados){
             addError("items_ya_cargados")
             return
         }
-        reefer.cargarItems()
+        inspeccion.cargarItems()
         getView().refresh()
         addMessage("items_cargados")
         hideAction = true
     }
 
     String getActionToHide(){
-        return hideAction ? "Reefer.cargarItems": null
+        return hideAction ? "Inspeccion.cargarItems": null
     }
 }
