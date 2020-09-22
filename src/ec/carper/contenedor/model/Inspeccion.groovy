@@ -37,6 +37,8 @@ import static org.openxava.jpa.XPersistence.*
             repArea, repAreaCC
         }
     } 
+    titEstiba{ detalle1 }
+
 """)
 class Inspeccion extends Identifiable{
     
@@ -80,6 +82,10 @@ class Inspeccion extends Identifiable{
     @ElementCollection
     @ListProperties("codigo,item.descripcion,cumple") @EditOnly
     Collection<InspeccionDetalle> detalle
+
+    @ElementCollection
+    // @ListProperties("codigo,item.descripcion,cumple") @EditOnly
+    Collection<InspeccionDetalle1> detalle1
 
     @Stereotype("TIME") @Column(length=5)
     String inspectorHoraArribo

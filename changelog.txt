@@ -1,3 +1,12 @@
+2020-09-22 
+	Actualización war
+
+2020-09-17 
+	Cambiar checks por combo enum en inspección
+
+2020-09-16 
+	Formulario Inspeccion y selección de tipo de contenedor
+
 2020-09-15 
 	Ordenar por código en Plantilla Contenedor Seco
 	Ordenar por código en Plantilla Contenedor Refrigerado

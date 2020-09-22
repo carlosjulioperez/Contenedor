@@ -58,6 +58,48 @@ class InspeccionTest extends ModuleTestBase {
         setValue("repArea", "LUIS LOPEZ")
         setValue("repAreaCC", "1234567890123")
         
+        execute ('Sections.change', 'activeSection=2')
+
+        assertCollectionRowCount("detalle1", 0)
+     
+        setValueInCollection("detalle1" , 0 , "lado"         , "0") //izquierdo
+        setValueInCollection("detalle1" , 0 , "palletNo"     , "1")
+        setValueInCollection("detalle1" , 0 , "producto"     , "PRODUCTO 1")
+        setValueInCollection("detalle1" , 0 , "palletCodigo" , "PALLET 1")
+        setValueInCollection("detalle1" , 0 , "loteCalibre"  , "LOTE 1")
+        setValueInCollection("detalle1" , 0 , "variedad"     , "VARIEDAD 1")
+        setValueInCollection("detalle1" , 0 , "temperatura"  , "10")
+        setValueInCollection("detalle1" , 0 , "cajasNo"      , "10")
+     
+        setValueInCollection("detalle1" , 1 , "lado"         , "0") //izquierdo
+        setValueInCollection("detalle1" , 1 , "palletNo"     , "3")
+        setValueInCollection("detalle1" , 1 , "producto"     , "PRODUCTO 3")
+        setValueInCollection("detalle1" , 1 , "palletCodigo" , "PALLET 3")
+        setValueInCollection("detalle1" , 1 , "loteCalibre"  , "LOTE 3")
+        setValueInCollection("detalle1" , 1 , "variedad"     , "VARIEDAD 3")
+        setValueInCollection("detalle1" , 1 , "temperatura"  , "30")
+        setValueInCollection("detalle1" , 1 , "cajasNo"      , "30")
+     
+        setValueInCollection("detalle1" , 2 , "lado"         , "1") //derecho
+        setValueInCollection("detalle1" , 2 , "palletNo"     , "2")
+        setValueInCollection("detalle1" , 2 , "producto"     , "PRODUCTO 2")
+        setValueInCollection("detalle1" , 2 , "palletCodigo" , "PALLET 2")
+        setValueInCollection("detalle1" , 2 , "loteCalibre"  , "LOTE 2")
+        setValueInCollection("detalle1" , 2 , "variedad"     , "VARIEDAD 2")
+        setValueInCollection("detalle1" , 2 , "temperatura"  , "20")
+        setValueInCollection("detalle1" , 2 , "cajasNo"      , "20")
+     
+        setValueInCollection("detalle1" , 3 , "lado"         , "1") //derecho
+        setValueInCollection("detalle1" , 3 , "palletNo"     , "4")
+        setValueInCollection("detalle1" , 3 , "producto"     , "PRODUCTO 4")
+        setValueInCollection("detalle1" , 3 , "palletCodigo" , "PALLET 4")
+        setValueInCollection("detalle1" , 3 , "loteCalibre"  , "LOTE 4")
+        setValueInCollection("detalle1" , 3 , "variedad"     , "VARIEDAD 4")
+        setValueInCollection("detalle1" , 3 , "temperatura"  , "40")
+        setValueInCollection("detalle1" , 3 , "cajasNo"      , "40")
+        
+        assertCollectionRowCount("detalle1", 4)
+        
         execute ("Contenedor.save")
 
         //assertCollectionRowCount("detalle1", 62)
