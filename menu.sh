@@ -30,6 +30,7 @@ case $opt in
 			;;
 		"unit-test")
 			ant test -Dnombre_clase=InspeccionTest
+			ant test -Dnombre_clase=SellosCierreContenedorTest
 			;;
 		"suite-test")
 			ant test -Dnombre_clase=SuiteTest

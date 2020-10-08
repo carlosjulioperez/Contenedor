@@ -15,9 +15,9 @@ import org.openxava.model.*
 
     titSelColCieCon { detalle1 }
     titBitSel { detalle2 }
+    titPerInv { detalle3 }
 
 """)
-    // titPerInv { detalle3 }
 class SellosCierreContenedor extends Identifiable{
     
     @DefaultValueCalculator(CurrentLocalDateCalculator.class) // Fecha actual
@@ -49,5 +49,8 @@ class SellosCierreContenedor extends Identifiable{
 
     @ElementCollection
     Collection<SellosCierreContenedorDetalle2> detalle2
+
+    @ElementCollection
+    Collection<SellosCierreContenedorDetalle3> detalle3
 
 }
