@@ -1,5 +1,10 @@
+2020-10-07
+	Agregar Termógrafo en Estiba
+	Crear entidad Contenedor y relacionarlo en Inspeccion
+
 2020-09-22 
 	Actualización war
+	Avance Pescarolo formato 2 de PDF
 
 2020-09-17 
 	Cambiar checks por combo enum en inspección

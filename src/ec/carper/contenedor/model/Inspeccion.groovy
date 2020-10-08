@@ -11,7 +11,8 @@ import org.openxava.validators.*
 import static org.openxava.jpa.XPersistence.*
 
 @Entity
-@Tab(properties="""fecha, contenedorTipo, contenedor,cliente.descripcion,naviera.descripcion""")
+// @Tab(properties="""fecha, contenedorTipo, contenedor.descripcion, cliente.descripcion,naviera.descripcion""")
+@Tab(properties="""fecha, contenedorTipo, contenedor.descripcion, cliente.descripcion, lugar""")
 @View(members="""#
     fecha, contenedorTipo, contenedor, contenedorTamano;
     lugar, cliente, referencia, naviera;
@@ -37,7 +38,7 @@ import static org.openxava.jpa.XPersistence.*
             repArea, repAreaCC
         }
     } 
-    titEstiba{ detalle1 }
+    titEstiba{ termografo; detalle1 }
 
 """)
 class Inspeccion extends Identifiable{
@@ -64,8 +65,8 @@ class Inspeccion extends Identifiable{
     @Column(length=150) @DisplaySize(20)
     String lugar
     
-    @Column(length=150) @DisplaySize(20)
-    String contenedor
+    @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList
+    Contenedor contenedor
     
     @ManyToOne(fetch=FetchType.LAZY) @DescriptionsList
     Cliente cliente 
@@ -82,6 +83,9 @@ class Inspeccion extends Identifiable{
     @ElementCollection
     @ListProperties("codigo,item.descripcion,cumple") @EditOnly
     Collection<InspeccionDetalle> detalle
+    
+    @Column(length=10)
+    String termografo 
 
     @ElementCollection
     // @ListProperties("codigo,item.descripcion,cumple") @EditOnly

@@ -12,7 +12,7 @@ class InspeccionTest extends ModuleTestBase {
         login("admin", "admin")
         
         execute("CRUD.new")
-        setValue("contenedor" , "JUNIT")
+        setValue("lugar" , "JUNIT")
         setValue("contenedorTipo" , "1") //Seco / Refrigerado
         // setValue("fecha" , Aux.instance.fechaActual )
         // setValue("fecha" , "10/09/2020" )
@@ -21,15 +21,15 @@ class InspeccionTest extends ModuleTestBase {
 
         // setConditionComparators ( new String[] { "=", "contains_comparator" } )
         // setConditionValues      ( new String[] { "", "JUNIT" } )
-        setConditionValues      ( [ "", "", "JUNIT" ] )
-        setConditionComparators ( [ "", "=", "contains_comparator" ] )
+        setConditionComparators ( [ "", "", "", "=", "contains_comparator" ] )
+        setConditionValues      ( [ "", "", "", "", "JUNIT" ] )
         execute ("List.filter")
         execute ("List.viewDetail", "row=0")
         execute ("Inspeccion.cargarItems")
         //printHtml()
         assertNoErrors()
         
-        setValue("lugar" , "LUGAR")
+        setValue("contenedor.id" , "1")
         setValue("cliente.id", "1")
         setValue("referencia", "REFERENCIA")
         setValue("naviera.id", "01")
